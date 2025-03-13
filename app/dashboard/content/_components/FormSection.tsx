@@ -3,10 +3,10 @@
 import React, { useState } from 'react'
 import { Loader2Icon } from 'lucide-react'
 import Image from 'next/image'
-import { ITemplate } from '@/app/dashboard/_components/TemplateListSection'
 import { Input } from '@/components/ui/input'
 import { Textarea } from '@/components/ui/textarea'
 import { Button } from '@/components/ui/button'
+import { ITemplate } from '@/app/dashboard/_components/TemplateListSection'
 
 type TFormSection = {
   selectedTemplate?: ITemplate
@@ -29,7 +29,7 @@ function FormSection({ selectedTemplate, userFormInput, loading }: TFormSection)
   }
 
   return (
-    <div className='p-5 shadow-md border rounded-lg bg-white'>
+    <section className='p-5 shadow-md border rounded-lg bg-white'>
         
       {selectedTemplate?.icon && (
         <Image src={selectedTemplate.icon} alt="icon" width={70} height={70} />
@@ -64,14 +64,14 @@ function FormSection({ selectedTemplate, userFormInput, loading }: TFormSection)
         ))}
         <Button 
           type="submit" 
-          className='w-full py-6'
+          className='w-full py-6 cursor-pointer'
           disabled={loading}
         >
           {loading && <Loader2Icon className='animate-spin'/>}
           Generate Content
         </Button>
       </form>
-    </div>
+    </section>
   )
 }
 
