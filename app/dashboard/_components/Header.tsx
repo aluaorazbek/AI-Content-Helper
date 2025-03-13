@@ -1,3 +1,4 @@
+import { UserButton } from '@clerk/nextjs';
 import React from 'react'
 import { GrSearch } from "react-icons/gr";
 
@@ -12,8 +13,9 @@ export default function Header() {
           className='outline-none w-fit'
         />
       </div>
-      <div>
+      <div className='flex gap-5 items-center'>
         <h2 className='bg-primary p-1 rounded-full text-white text-xs px-2 font-medium'>Join Membership just for 5$/Month!</h2>
+        <UserButton />
       </div>
     </div>
   )
