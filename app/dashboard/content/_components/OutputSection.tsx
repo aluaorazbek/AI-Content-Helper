@@ -1,11 +1,21 @@
-import React, { useRef } from 'react'
+import React, { useEffect, useRef } from 'react'
 import '@toast-ui/editor/dist/toastui-editor.css'
 import { Editor } from '@toast-ui/react-editor';
 import { GrCopy } from "react-icons/gr";
 import { Button } from '@/components/ui/button';
 
-export default function OutputSection() {
+
+type TOutputSection = {
+  aiOutput: string
+}
+   
+export default function OutputSection({aiOutput}: TOutputSection ) {
   const editorRef = useRef<Editor | null>(null)
+
+  useEffect(() => {
+    const editorInstance = editorRef.current?.getInstance()
+    editorInstance.setMarkdown(aiOutput) 
+  }, [aiOutput])
   
   return (
     <section className='bg-white shadow-lg border rounded-lg '>

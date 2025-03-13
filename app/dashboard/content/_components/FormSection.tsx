@@ -1,7 +1,7 @@
 "use client"
 
 import React, { useState } from 'react'
-import { Loader2Icon } from 'lucide-react'
+import { AiOutlineLoading3Quarters } from 'react-icons/ai'
 import Image from 'next/image'
 import { Input } from '@/components/ui/input'
 import { Textarea } from '@/components/ui/textarea'
@@ -67,8 +67,7 @@ function FormSection({ selectedTemplate, userFormInput, loading }: TFormSection)
           className='w-full py-6 cursor-pointer'
           disabled={loading}
         >
-          {loading && <Loader2Icon className='animate-spin'/>}
-          Generate Content
+          {loading ? <AiOutlineLoading3Quarters className='animate-spin'/> : <span>Generate Content</span>}
         </Button>
       </form>
     </section>

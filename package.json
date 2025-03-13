@@ -10,11 +10,11 @@
   },
   "dependencies": {
     "@clerk/nextjs": "^6.12.4",
+    "@google/generative-ai": "^0.24.0",
     "@radix-ui/react-slot": "^1.1.2",
     "@toast-ui/react-editor": "^3.2.3",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
-    "lucide-react": "^0.479.0",
     "next": "15.2.1",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
