@@ -2,12 +2,16 @@
 import React, { useState } from 'react'
 import { FaArrowLeft } from "react-icons/fa";
 import Link from 'next/link'
+import moment from 'moment'
 import TemplatesData from '@/app/(data)/Templates'
 import { Button } from '@/components/ui/button'
 import { ITemplate } from '@/app/dashboard/_components/TemplateListSection'
 import FormSection from '@/app/dashboard/content/_components/FormSection'
 import OutputSection from '@/app/dashboard/content/_components/OutputSection'
 import { chatSession } from '@/utils/AiModal'
+import { db } from '@/utils/db';
+import { AiOutputSchema } from '@/utils/schema';
+import { useUser } from '@clerk/nextjs';
 
 type TCreateNewContent = {
   params:{
@@ -22,6 +26,8 @@ function CreateNewContent(props: TCreateNewContent) {
   const [loading, setLoading] = useState<boolean>(false)
   const [aiOutput, setAiOutput] = useState<string>('');
 
+  const {user} =  useUser();
+
   const GenerateAIContent = async(formData: any) => {
     setLoading(true)
 
@@ -32,8 +38,22 @@ function CreateNewContent(props: TCreateNewContent) {
 
     // console.log(result.response.text())
     setAiOutput(result.response.text())
+
+    await SaveInDb(formData, selectedTemplate?.slug, result.response.text() )
     setLoading(false)
   }
+
+  const SaveInDb = async(formData: any, slug: any, aiResponse: string) => {
+    const result =  await db.insert(AiOutputSchema).values({
+        formData: formData,
+        templateSlug: slug,
+        aiResponse: aiResponse,
+        createdBy: user?.primaryEmailAddress?.emailAddress,
+        createdAt: moment().format('DD/MM/yyyy'),
+    });
+
+    console.log(result);
+}
 
   return (
     <div className='p-5'>
@@ -55,3 +75,4 @@ function CreateNewContent(props: TCreateNewContent) {
 }
 
 export default CreateNewContent
+
