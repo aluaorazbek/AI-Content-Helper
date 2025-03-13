@@ -1,9 +1,9 @@
 import React from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
-import { IPrompt } from '@/app/dashboard/_components/PromptListSection'
+import { ITemplate } from '@/app/dashboard/_components/TemplateListSection'
 
-export default function PromptCard(item: IPrompt) {
+export default function TemplateCard(item: ITemplate) {
   return (
     <Link href={'/dashboard/content/'+item?.slug}>
       <div className='p-5 shadow-md rounded-md border bg-white 

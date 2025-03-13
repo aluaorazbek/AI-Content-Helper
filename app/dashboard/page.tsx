@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react'
 import SearchSection from '@/app/dashboard/_components/SearchSection'
-import PromptListSection from '@/app/dashboard/_components/PromptListSection'
+import TemplateListSection from '@/app/dashboard/_components/TemplateListSection'
 
 export default function DashboardPage() {
   const [userSearchInput, setUserSearchInput] = useState<string>()
@@ -10,7 +10,7 @@ export default function DashboardPage() {
   return (
     <div>
        <SearchSection onSearchInput = {(value:string) => setUserSearchInput(value)}/>
-       <PromptListSection userSearchInput={userSearchInput} />
+       <TemplateListSection userSearchInput={userSearchInput} />
     </div>
   )
 }

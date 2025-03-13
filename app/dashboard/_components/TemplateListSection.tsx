@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
-import Prompts from '@/app/(data)/Prompts'
-import PromptCard from '@/app/dashboard/_components/PromptCard'
+import TemplateData from '@/app/(data)/Templates'
+import TemplateCard from '@/app/dashboard/_components/TemplateCard'
 
 export interface IForm{
   label: string,
@@ -9,7 +9,7 @@ export interface IForm{
   required?: boolean
 }
 
-export interface IPrompt{
+export interface ITemplate{
   name: string,
   desc: string,
   icon: string,
@@ -19,28 +19,28 @@ export interface IPrompt{
   form?: IForm[]
 }
 
-export default function PromptListSection({userSearchInput}:any) {
+export default function TemplateListSection({userSearchInput}:any) {
 
-  const [promptList, setPromptList] = useState(Prompts)
+  const [templateList, setTemplateList] = useState(TemplateData)
 
   useEffect(() => {
     if(userSearchInput)
       {
-        const filterData = Prompts.filter(item=>
+        const filterData = TemplateData.filter(item=>
           item.name.toLowerCase().includes(userSearchInput.toLowerCase())
         );
-        setPromptList(filterData);
+        setTemplateList(filterData);
       }
       else{
-        setPromptList(Prompts)
+        setTemplateList(TemplateData)
       }
   }, [userSearchInput])
 
 
   return (
     <div className='grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5 p-10'>
-      {promptList.map((item: IPrompt, index: number)=>(
-        <PromptCard {...item} key={item.slug || index} />
+      {templateList.map((item: ITemplate, index: number)=>(
+        <TemplateCard {...item} key={item.slug || index} />
       ))}
     </div>
   )

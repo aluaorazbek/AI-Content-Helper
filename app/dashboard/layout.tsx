@@ -14,7 +14,9 @@ export default function DashboardLayout({
       </div>
       <div className='md:ml-64'>
         <Header />
-        {children}
+        <div className='bg-slate-100 min-h-screen'>
+          {children}
+        </div>
       </div>
     </div>
   )  
