@@ -21,7 +21,12 @@ export default function OutputSection({aiOutput}: TOutputSection ) {
     <section className='bg-white shadow-lg border rounded-lg '>
       <div className='flex justify-between items-center p-5'>
         <h2 className='font-medium text-lg'>Your Result</h2>
-        <Button className='flex gap-2 cursor-pointer'><GrCopy/> Copy </Button>
+        <Button 
+          className='flex gap-2 cursor-pointer'
+          onClick={()=>navigator.clipboard.writeText(aiOutput)}
+        >
+            <GrCopy/> Copy 
+          </Button>
       </div>
       <Editor
         ref={editorRef}
