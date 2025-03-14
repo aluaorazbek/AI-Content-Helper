@@ -8,9 +8,9 @@ export default function DashboardPage() {
   const [userSearchInput, setUserSearchInput] = useState<string>()
   
   return (
-    <div>
+    <main>
        <SearchSection onSearchInput = {(value:string) => setUserSearchInput(value)}/>
        <TemplateListSection userSearchInput={userSearchInput} />
-    </div>
+    </main>
   )
 }

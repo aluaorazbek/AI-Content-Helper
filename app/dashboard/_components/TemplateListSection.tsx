@@ -29,7 +29,7 @@ export default function TemplateListSection({userSearchInput}:any) {
         const filterData = TemplateData.filter(item=>
           item.name.toLowerCase().includes(userSearchInput.toLowerCase())
         );
-        setTemplateList(filterData);
+        setTemplateList(filterData)
       }
       else{
         setTemplateList(TemplateData)
@@ -38,10 +38,10 @@ export default function TemplateListSection({userSearchInput}:any) {
 
 
   return (
-    <div className='grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5 p-10'>
+    <section className='grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5 p-10'>
       {templateList.map((item: ITemplate, index: number)=>(
         <TemplateCard {...item} key={item.slug || index} />
       ))}
-    </div>
+    </section>
   )
 }

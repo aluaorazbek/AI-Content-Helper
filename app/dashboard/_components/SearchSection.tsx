@@ -1,7 +1,7 @@
 import React from 'react'
-import { GrSearch } from "react-icons/gr";
+import { GrSearch } from "react-icons/gr"
 
-export default function SearchSection({onSearchInput}:any) {
+export default function SearchSection({onSearchInput}: any) {
   return (
     <section className='p-10 bg-gradient-to-br from-blue-500 via-blue-700 
     to-blue-400 flex flex-col justify-center items-center text-white'>

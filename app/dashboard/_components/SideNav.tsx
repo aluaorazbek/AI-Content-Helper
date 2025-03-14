@@ -30,10 +30,10 @@ export default function SideNav() {
   ]
 
   return (
-    <div className='h-screen p-5 shadow-sm border'>
-      <div className='flex justify-center mb-9'>
+    <nav className='h-screen p-5 shadow-sm border'>
+      <Link className='flex justify-center mb-9' href={'/'}>
         <Image src={'/logo.svg'} alt='logo' width={130} height={130}/>
-      </div>
+      </Link>
       <hr className='shadow-sm'/>
       <div className='py-5'>
         {MenuList.map((menu, index)=>(
@@ -48,6 +48,6 @@ export default function SideNav() {
           </Link>
         ))}
       </div>
-    </div>
+    </nav>
   )
 }

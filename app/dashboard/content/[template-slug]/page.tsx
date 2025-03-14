@@ -56,7 +56,7 @@ function CreateNewContent(props: TCreateNewContent) {
 }
 
   return (
-    <div className='p-5'>
+    <main className='p-5'>
         <Link href = {"/dashboard"}>
           <Button className='cursor-pointer'> <FaArrowLeft/> Back</Button>
         </Link>
@@ -70,7 +70,7 @@ function CreateNewContent(props: TCreateNewContent) {
             <OutputSection aiOutput={aiOutput}/> 
           </div>
         </div>
-    </div>
+    </main>
   )
 }
 
