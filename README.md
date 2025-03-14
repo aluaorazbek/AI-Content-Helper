@@ -11,7 +11,7 @@ This is a Next.js application designed to help generate AI content, including po
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/yourusername/ai-content-generator.git
+   git clone https://github.com/aluaorazbek/AI-Content-Helper.git)
 2. Install dependencies with --force flag to avoid potential conflicts:
    ```bash
    npm install --force
